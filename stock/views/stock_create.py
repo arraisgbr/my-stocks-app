@@ -1,4 +1,3 @@
-from typing import Any
 from django.views.generic.edit import FormView
 from stock.forms import StockForm
 from django.urls import reverse_lazy
