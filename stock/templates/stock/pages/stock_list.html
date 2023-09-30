@@ -9,7 +9,7 @@
     <h2>Hi, {{user}}. This is your stock list</h2>
     <ul>
         {% for stock in stocks %}
-        <li>{{ stock.symbol }}</li>
+        <li><a href="{% url 'stock:stock_detail' stock.id %}">{{ stock.symbol }}</a></li>
         {% endfor %}
     </ul>
 </body>
