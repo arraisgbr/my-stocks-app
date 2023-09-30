@@ -22,8 +22,8 @@ def get_stock_price(stock_id):
 
     if response.status_code == 200:
         data = response.json()
-        StockHistory.objects.create({
-            'price': data['c'],
-            'date': datetime.now(),
-            'stock': stock,
-        })
+        StockHistory.objects.create(
+            price=data['c'],
+            date=datetime.now(),
+            stock=stock
+        )
