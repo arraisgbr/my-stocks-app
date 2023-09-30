@@ -12,5 +12,6 @@
         <li><a href="{% url 'stock:stock_detail' stock.id %}">{{ stock.symbol }}</a></li>
         {% endfor %}
     </ul>
+    <a href={% url 'stock:stock_create' %}>Create a Stock</a>
 </body>
 </html>
