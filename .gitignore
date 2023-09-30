@@ -24,3 +24,6 @@ venv/
 
 # Ignore macOS system files
 .DS_Store
+
+# Ignoring celery dump file
+*.rdb
