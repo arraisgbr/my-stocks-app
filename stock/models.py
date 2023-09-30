@@ -12,3 +12,13 @@ class Stock(models.Model):
 
     def __str__(self) -> str:
         return f"{self.symbol}"
+
+
+class StockHistory(models.Model):
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    date = models.DateField()
+    stock = models.ForeignKey(Stock, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.stock} with price {self.price} at {self.date}"
+
