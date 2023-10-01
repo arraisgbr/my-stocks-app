@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome, {{user.username}}</h2>
+    <a href="{% url 'stock:stock_list'%}"><button>Show my Stocks</button></a>
+    <a href="{% url 'wallet:wallet_list'%}"><button>Show my wallets</button></a>
+    <a href="{% url 'wallet:wallet_list_all'%}"><button>Show all wallets</button></a>
+</body>
+</html>
