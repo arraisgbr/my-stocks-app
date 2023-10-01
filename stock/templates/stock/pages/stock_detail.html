@@ -17,7 +17,7 @@
         {% csrf_token %}
         <button type="submit">Delete</button>
     </form>
-    <a href={% url 'stock:stock_list' %}><button>Voltar</button></a>
+    <a href={% url 'stock:stock_list' %}><button>Go back</button></a>
 
         <script>
             const labels = {{ chart_data.labels | safe }};
