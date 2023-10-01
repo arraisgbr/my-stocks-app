@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'my_stocks_app',
     'authentication',
     'stock',
+    'wallet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
