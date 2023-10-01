@@ -10,5 +10,9 @@
     <a href="{% url 'stock:stock_list'%}"><button>Show my Stocks</button></a>
     <a href="{% url 'wallet:wallet_list'%}"><button>Show my wallets</button></a>
     <a href="{% url 'wallet:wallet_list_all'%}"><button>Show all wallets</button></a>
+    <form method="post" action="{% url 'authentication:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>
