@@ -12,9 +12,12 @@
     <form method="post" action="{% url 'stock:stock_update' stock.pk %}">
         {% csrf_token %}
         <button type="submit">Update</button>
+    </form>
     <form method="post" action="{% url 'stock:stock_delete' stock.pk %}">
         {% csrf_token %}
         <button type="submit">Delete</button>
+    </form>
+    <a href={% url 'stock:stock_list' %}><button>Voltar</button></a>
 
         <script>
             const labels = {{ chart_data.labels | safe }};
