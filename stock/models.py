@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from utils.verify_email import verify_email
+from wallet.models import Wallet
 
 
 class Stock(models.Model):
@@ -9,6 +10,7 @@ class Stock(models.Model):
     max_value = models.DecimalField(max_digits=8, decimal_places=2)
     frequency = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    wallet = models.ForeignKey(Wallet, on_delete=models.DO_NOTHING, default=None, null=True)
 
     def __str__(self) -> str:
         return f"{self.symbol}"
