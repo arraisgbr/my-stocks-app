@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'my_stocks_app',
+    'app_base',
     'authentication',
     'stock',
     'wallet',
