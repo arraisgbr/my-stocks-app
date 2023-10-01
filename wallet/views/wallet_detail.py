@@ -12,4 +12,4 @@ class WalletDetailView(DetailView):
         context_data = super().get_context_data(**kwargs)
         stocks = Stock.objects.all().filter(wallet=self.object)
         context_data['stocks'] = stocks
-        return super().get_context_data(**kwargs)
+        return context_data
