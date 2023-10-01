@@ -10,3 +10,8 @@ class StockUpdateView(UpdateView):
     form_class = StockUpdateForm
     template_name = 'stock/pages/stock_update.html'
     success_url = reverse_lazy('stock:stock_list')
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
