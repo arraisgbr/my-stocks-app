@@ -3,15 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Stock Detail</title>
 </head>
 <body>
     <h2>{{ stock.symbol }}</h2>
+    <canvas id="chart" width="400" height="200"></canvas>
     <form method="post" action="{% url 'stock:stock_update' stock.pk %}">
         {% csrf_token %}
         <button type="submit">Update</button>
     <form method="post" action="{% url 'stock:stock_delete' stock.pk %}">
         {% csrf_token %}
         <button type="submit">Delete</button>
+
+        <script>
+            const labels = {{ chart_data.labels | safe }};
+            const data = {{ chart_data.data | safe }};
+
+            var ctx = document.getElementById('chart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'History',
+                        data: data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
 </body>
 </html>
