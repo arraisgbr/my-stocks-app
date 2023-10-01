@@ -19,6 +19,6 @@ Stock = apps.get_model('stock', 'Stock')
 for stock in Stock.objects.all():
     app.conf.beat_schedule[f'get-stock({stock.id})-price'] = {
         'task': 'my_stocks_app.tasks.get_stock_price',
-        'schedule': 10,
+        'schedule': stock.frequency,
         'args': (stock.id,),
     }
