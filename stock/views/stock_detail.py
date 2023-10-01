@@ -1,8 +1,11 @@
 from django.views.generic.detail import DetailView
 from stock.models import Stock
 from utils import create_chart_data
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class StockDetailView(DetailView):
     model = Stock
     template_name = 'stock/pages/stock_detail.html'

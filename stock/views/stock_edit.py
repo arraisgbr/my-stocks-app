@@ -3,8 +3,11 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
 from stock.models import Stock
 from stock.forms import StockUpdateForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class StockUpdateView(UpdateView):
     model = Stock
     form_class = StockUpdateForm

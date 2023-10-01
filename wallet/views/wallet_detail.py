@@ -1,8 +1,11 @@
 from django.views.generic.detail import DetailView
 from stock.models import Stock
 from wallet.models import Wallet
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class WalletDetailView(DetailView):
     model = Wallet
     template_name = 'wallet/pages/wallet_detail.html'
