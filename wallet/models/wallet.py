@@ -7,4 +7,4 @@ class Wallet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f"{self.symbol}"
+        return f"{self.name}"
