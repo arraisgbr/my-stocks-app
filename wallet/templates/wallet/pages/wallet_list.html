@@ -9,7 +9,9 @@
     <h2>Hi, {{user}}. This is your wallet list</h2>
     <ul>
         {% for wallet in wallets %}
-        <li><a href="{% url 'wallet:wallet_detail' wallet.id %}">{{ wallet.name }}</a></li>
+            <li><a href="{% url 'wallet:wallet_detail' wallet.id %}">{{ wallet.name }}</a></li>
+        {% empty %}
+            You don't have wallets.
         {% endfor %}
     </ul>
     <a href={% url 'wallet:wallet_create' %}><button>Create a Wallet</button></a>

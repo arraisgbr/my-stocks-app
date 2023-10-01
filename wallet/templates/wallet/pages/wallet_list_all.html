@@ -12,6 +12,8 @@
         <li>
             <a href="{% url 'wallet:wallet_detail' wallet.id %}">{{ wallet.name }}</a> - {{ wallet.user.username }}
         </li>
+        {% empty %}
+            There are no wallets yet.
         {% endfor %}
     </ul>
     <a href="{% url 'app_home:home' %}"><button>Go back</button></a>

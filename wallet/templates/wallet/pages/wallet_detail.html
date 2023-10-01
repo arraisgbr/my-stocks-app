@@ -9,15 +9,17 @@
     <h2>{{ wallet.symbol }}</h2>
     <ul>
         {% for stock in stocks %}
-        <li><a href="{% url 'stock:stock_detail' stock.id %}">{{stock.symbol}}</a></li>
+            <li><a href="{% url 'stock:stock_detail' stock.id %}">{{stock.symbol}}</a></li>
+        {% empty %}
+            There are no stocks in this wallet yet.
         {% endfor %}
     </ul>
 
     {% if user == wallet.user %}
-    <form method="post" action="{% url 'wallet:wallet_delete' wallet.pk %}">
-        {% csrf_token %}
-        <button type="submit">Delete Wallet</button>
-    </form>
+        <form method="post" action="{% url 'wallet:wallet_delete' wallet.pk %}">
+            {% csrf_token %}
+            <button type="submit">Delete Wallet</button>
+        </form>
     {% endif %}
 
     <a href="{% url 'wallet:wallet_list_all'%}"><button>Go back</button></a>

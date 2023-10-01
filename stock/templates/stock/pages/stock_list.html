@@ -9,7 +9,9 @@
     <h2>Hi, {{user}}. This is your stock list</h2>
     <ul>
         {% for stock in stocks %}
-        <li><a href="{% url 'stock:stock_detail' stock.id %}">{{ stock.symbol }}</a></li>
+            <li><a href="{% url 'stock:stock_detail' stock.id %}">{{ stock.symbol }}</a></li>
+        {% empty %}
+            You don't have stocks.
         {% endfor %}
     </ul>
     <a href={% url 'stock:stock_create' %}><button>Create a Stock</button></a>
