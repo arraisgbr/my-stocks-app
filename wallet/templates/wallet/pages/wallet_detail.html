@@ -12,9 +12,14 @@
         <li><a href="{% url 'stock:stock_detail' stock.id %}">{{stock.symbol}}</a></li>
         {% endfor %}
     </ul>
+
+    {% if user == wallet.user %}
     <form method="post" action="{% url 'wallet:wallet_delete' wallet.pk %}">
         {% csrf_token %}
         <button type="submit">Delete Wallet</button>
-    <a href="{% url 'wallet:wallet_list'%}"><button>Go back</button></a>
+    </form>
+    {% endif %}
+
+    <a href="{% url 'wallet:wallet_list_all'%}"><button>Go back</button></a>
 </body>
 </html>
