@@ -7,13 +7,14 @@
 </head>
 <body>
     <h2>{{ wallet.symbol }}</h2>
+    <ul>
+        {% for stock in stocks %}
+        <li><a href="{% url 'stock:stock_detail' stock.id %}">{{stock.symbol}}</a></li>
+        {% endfor %}
+    </ul>
     <form method="post" action="{% url 'wallet:wallet_delete' wallet.pk %}">
         {% csrf_token %}
         <button type="submit">Delete Wallet</button>
-    <ul>
-        {% for stock in stocks %}
-            <li><a href="{% url 'stock:stock_detail' stock.id %}">{{stock.symbol}}</a></li>
-        {% endfor %}
-    </ul>
+    <a href="{% url 'wallet:wallet_list'%}"><button>Go back</button></a>
 </body>
 </html>
