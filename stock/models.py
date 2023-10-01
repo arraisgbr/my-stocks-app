@@ -10,7 +10,8 @@ class Stock(models.Model):
     max_value = models.DecimalField(max_digits=8, decimal_places=2)
     frequency = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    wallet = models.ForeignKey(Wallet, on_delete=models.DO_NOTHING, default=None, null=True)
+    wallet = models.ForeignKey(
+        Wallet, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.symbol}"
@@ -29,4 +30,3 @@ class StockHistory(models.Model):
 
     def __str__(self) -> str:
         return f"{self.stock} with price {self.price} at {self.date}"
-
