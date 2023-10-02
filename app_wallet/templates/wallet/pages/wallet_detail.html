@@ -20,9 +20,10 @@
             {% csrf_token %}
             <button type="submit">Delete Wallet</button>
         </form>
+        <a href="{% url 'wallet:wallet_list'%}"><button>Go back</button></a>
+    {% else %}
+        <a href="{% url 'wallet:wallet_list_all'%}"><button>Go back</button></a>
     {% endif %}
-
-    <a href="{% url 'wallet:wallet_list'%}"><button>Go to my Wallets</button></a>
-    <a href="{% url 'wallet:wallet_list_all'%}"><button>Go to all Wallets</button></a>
+    
 </body>
 </html>

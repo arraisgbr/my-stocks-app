@@ -9,14 +9,18 @@
 <body>
     <h2>{{ stock.symbol }}</h2>
     <canvas id="chart" width="400" height="200"></canvas>
-    <form method="post" action="{% url 'stock:stock_update' stock.pk %}">
-        {% csrf_token %}
-        <button type="submit">Update</button>
-    </form>
-    <form method="post" action="{% url 'stock:stock_delete' stock.pk %}">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
+    
+    {% if user == stock.user %}
+        <form method="post" action="{% url 'stock:stock_update' stock.pk %}">
+            {% csrf_token %}
+            <button type="submit">Update</button>
+        </form>
+        <form method="post" action="{% url 'stock:stock_delete' stock.pk %}">
+            {% csrf_token %}
+            <button type="submit">Delete Stock</button>
+        </form>
+    {% endif %}
+    
     <a href={% url 'stock:stock_list' %}><button>Go back</button></a>
 
         <script>
