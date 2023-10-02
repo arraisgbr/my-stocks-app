@@ -3,6 +3,7 @@ import django
 from django.apps import apps
 from celery import Celery
 from django.conf import settings
+from celery.schedules import crontab
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_stocks_app.settings')
 
@@ -19,6 +20,6 @@ Stock = apps.get_model('app_stock', 'Stock')
 for stock in Stock.objects.all():
     app.conf.beat_schedule[f'get-stock({stock.id})-price'] = {
         'task': 'my_stocks_app.tasks.get_stock_price',
-        'schedule': stock.frequency,
+        'schedule': crontab(minute=f"*/{stock.frequency}"),
         'args': (stock.id,),
     }
