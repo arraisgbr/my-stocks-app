@@ -1,7 +1,7 @@
 # stock/urls.py
 from django.urls import path
-from .views import WalletCreateView, WalletDeleteView
-from .views import WalletListView, WalletDetailView, WalletListAllView
+from app_wallet.views import WalletCreateView, WalletDeleteView
+from app_wallet.views import WalletListView, WalletDetailView, WalletListAllView
 
 app_name = 'wallet'
 

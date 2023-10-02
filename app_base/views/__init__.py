@@ -1,1 +1,1 @@
-from .BaseView import *
+from .base import *

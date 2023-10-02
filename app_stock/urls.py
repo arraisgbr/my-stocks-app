@@ -1,7 +1,7 @@
 # stock/urls.py
 from django.urls import path
-from .views import StockListView, StockDetailView
-from .views import StockCreateView, StockDeleteView, StockUpdateView
+from app_stock.views import StockListView, StockDetailView
+from app_stock.views import StockCreateView, StockDeleteView, StockUpdateView
 
 app_name = 'stock'
 

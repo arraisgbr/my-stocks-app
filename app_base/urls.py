@@ -1,5 +1,5 @@
 from django.urls import path
-from .views.BaseView import BaseView
+from app_base.views import BaseView
 
 app_name = 'app_base'
 

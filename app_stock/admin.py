@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Stock, StockHistory
+from app_stock.models import Stock, StockHistory
 
 
 @admin.register(Stock)
