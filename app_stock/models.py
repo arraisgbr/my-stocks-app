@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from utils.verify_email import verify_email
-from wallet.models import Wallet
+from app_wallet.models import Wallet
 
 
 class Stock(models.Model):

@@ -1,6 +1,6 @@
 from django.views.generic.detail import DetailView
-from stock.models import Stock
-from wallet.models import Wallet
+from app_stock.models import Stock
+from app_wallet.models import Wallet
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 

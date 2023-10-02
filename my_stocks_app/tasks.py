@@ -2,7 +2,7 @@
 from celery import shared_task
 import requests
 import os
-from stock.models import Stock, StockHistory
+from app_stock.models import Stock, StockHistory
 from dotenv import load_dotenv
 from datetime import datetime
 

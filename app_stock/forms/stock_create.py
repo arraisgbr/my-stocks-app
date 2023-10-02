@@ -1,5 +1,5 @@
-from stock.models import Stock
-from wallet.models import Wallet
+from app_stock.models import Stock
+from app_wallet.models import Wallet
 from django import forms
 
 

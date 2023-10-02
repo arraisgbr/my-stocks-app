@@ -15,7 +15,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 app.conf.beat_schedule = {}
-Stock = apps.get_model('stock', 'Stock')
+Stock = apps.get_model('app_stock', 'Stock')
 for stock in Stock.objects.all():
     app.conf.beat_schedule[f'get-stock({stock.id})-price'] = {
         'task': 'my_stocks_app.tasks.get_stock_price',

@@ -1,7 +1,7 @@
 # your_app/forms.py
 from django import forms
-from stock.models import Stock
-from wallet.models import Wallet
+from app_stock.models import Stock
+from app_wallet.models import Wallet
 
 
 class StockUpdateForm(forms.ModelForm):

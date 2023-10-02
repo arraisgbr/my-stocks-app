@@ -1,5 +1,5 @@
 from django.views.generic.edit import FormView
-from authentication.forms.register import SignUpForm
+from app_authentication.forms.register import SignUpForm
 from django.contrib.auth import login
 from django.urls import reverse_lazy
 
